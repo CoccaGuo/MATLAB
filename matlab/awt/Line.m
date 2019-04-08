@@ -76,7 +76,7 @@ methods
     function print(line)
         fprintf("line:P1(%.2f,%.2f) P2(%.2f,%.2f)\n",line.x1,line.y1,line.x2,line.y2);
     end 
-    function flag = eq(line,anotherLine) %Ê©¹¤ÖĞ...
+    function flag = eq(line,anotherLine) %ÃŠÂ©Â¹Â¤Ã–Ã...
         if (double(line.x1) == double(anotherLine.x1) & double(line.x2) == double(anotherLine.x2)) & (double(line.y1) == double(anotherLine.y1) & double(line.y2) == double(anotherLine.y2))
             flag = 1;
         else
