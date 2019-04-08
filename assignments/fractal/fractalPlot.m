@@ -2,16 +2,16 @@ function fractalPlot(questionNum,n)
     if nargin == 1
         n = 4;
     end
-    parentLine = FractalLine(0,0,0,1);  %³õÊ¼Ä¸Ïß¶Î
+    parentLine = FractalLine(0,0,0,1);  %åˆå§‹æ¯çº¿æ®µ
     if questionNum==3
-        parentLine = FractalLine(0,1,0,0);  %³õÊ¼Ä¸Ïß¶Î
+        parentLine = FractalLine(0,1,0,0);  %åˆå§‹æ¯çº¿æ®µ
     end
-    lineList = ArrayList(parentLine); %ÉùÃ÷²¢ÊµÏÖÒ»¸öArrayList£¬ÓÃÓÚ´æ·ÅËùÓĞÏß¶Î
+    lineList = ArrayList(parentLine); %å£°æ˜å¹¶å®ç°ä¸€ä¸ªArrayListï¼Œç”¨äºå­˜æ”¾æ‰€æœ‰çº¿æ®µ
     lineList.add(parentLine);
     childrenList = ArrayList(parentLine);
     for i = 1:n
         childrenList.removeAll();
-        for cursor = 1:lineList.getSize() %±éÀúÕû¸ölineList
+        for cursor = 1:lineList.getSize() %éå†æ•´ä¸ªlineList
             if questionNum == 1
                 childrenList.addAll(lineList.get(cursor).fractal);
             elseif questionNum ==2
