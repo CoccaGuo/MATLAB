@@ -2,7 +2,7 @@ classdef(Abstract) Obj < handle % extends handle class
     % all superclasses of MyClass Object
     % interface implements to Matlab Classes
     methods(Abstract)
-     flag = eq(obj,anotherObj); %ÅÐ¶ÏÁ½¸ö¶ÔÏóÊÇ·ñÏàµÈ 
-     print(obj); %¸ñÊ½»¯´òÓ¡¶ÔÏó
+     flag = eq(obj,anotherObj); %åˆ¤æ–­ä¸¤ä¸ªå¯¹è±¡æ˜¯å¦ç›¸ç­‰ 
+     print(obj); %æ ¼å¼åŒ–æ‰“å°å¯¹è±¡
     end
 end
