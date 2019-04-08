@@ -13,7 +13,7 @@ classdef FractalLine < Line % extends Line
 
         end
         
-        function triLineList = trisection(line) % return 3 FractalLine objects ·µ»ØÈýµÈ·ÖµÄ(3¸ö)·ÖÐÎÏß¶Î¶ÔÏó
+        function triLineList = trisection(line) % return 3 FractalLine objects è¿”å›žä¸‰ç­‰åˆ†çš„(3ä¸ª)åˆ†å½¢çº¿æ®µå¯¹è±¡
             vec = [line.x2-line.x1,line.y2-line.y1];
             line1 = FractalLine(line.x1,line.x1+vec(1)/3,line.y1,line.y1+vec(2)/3);
             line2 = FractalLine(line.x1+vec(1)/3,line.x1+vec(1)*2/3,line.y1+vec(2)/3,line.y1+vec(2)*2/3);
@@ -24,13 +24,13 @@ classdef FractalLine < Line % extends Line
             triLineList.add(line3);
         end
        
-        function childrenLineList = fractal(line) %fractal£¬get all children FractalLine node
+        function childrenLineList = fractal(line) %fractalï¼Œget all children FractalLine node
             triLineList = trisection(line);
-            line1 = triLineList.get(1);%·µ»ØµÄµÚ1,2,3¸ù·ÖÐÎ×ÓÏß¶ÎÊÇÔ­À´Ïß¶ÎµÄ3µÈ·ÖÏß¶Î
+            line1 = triLineList.get(1);%è¿”å›žçš„ç¬¬1,2,3æ ¹åˆ†å½¢å­çº¿æ®µæ˜¯åŽŸæ¥çº¿æ®µçš„3ç­‰åˆ†çº¿æ®µ
             line2 = triLineList.get(2);
             line3 = triLineList.get(3);
-            line4 = line2.rotate(line.theta);%µÚ4¸ùÊÇµÚ2¸ùÄæÊ±Õë×ªtheta¶È
-            line5 = line3.rotate(-line.theta);%µÚ5¸ùÊÇµÚÈý¸ùË³Ê±Õë×ªtheta¶È
+            line4 = line2.rotate(line.theta);%ç¬¬4æ ¹æ˜¯ç¬¬2æ ¹é€†æ—¶é’ˆè½¬thetaåº¦
+            line5 = line3.rotate(-line.theta);%ç¬¬5æ ¹æ˜¯ç¬¬ä¸‰æ ¹é¡ºæ—¶é’ˆè½¬thetaåº¦
             childrenLineList = ArrayList(line1);
             childrenLineList.add(line1);
             childrenLineList.add(line2);
@@ -52,13 +52,13 @@ classdef FractalLine < Line % extends Line
         aline.y1 = line.y2 ;
         aline.y2 = line.y1 ;
      end
-          function childrenLineList = fractal2(line) %fractal£¬get all children FractalLine node
+          function childrenLineList = fractal2(line) %fractalï¼Œget all children FractalLine node
             triLineList = trisection(line);
-            line1 = triLineList.get(1);%·µ»ØµÄµÚ1,2,3¸ù·ÖÐÎ×ÓÏß¶ÎÊÇÔ­À´Ïß¶ÎµÄ3µÈ·ÖÏß¶Î
+            line1 = triLineList.get(1);%è¿”å›žçš„ç¬¬1,2,3æ ¹åˆ†å½¢å­çº¿æ®µæ˜¯åŽŸæ¥çº¿æ®µçš„3ç­‰åˆ†çº¿æ®µ
             line2 = triLineList.get(2);
             line3 = triLineList.get(3);
-            line4 = line2.rotate(line.theta);%µÚ4¸ùÊÇµÚ2¸ùÄæÊ±Õë×ªtheta¶È
-            line5 = line3.rotate(2*line.theta);%µÚ5¸ùÊÇµÚÈý¸ùË³Ê±Õë×ªtheta¶È
+            line4 = line2.rotate(line.theta);%ç¬¬4æ ¹æ˜¯ç¬¬2æ ¹é€†æ—¶é’ˆè½¬thetaåº¦
+            line5 = line3.rotate(2*line.theta);%ç¬¬5æ ¹æ˜¯ç¬¬ä¸‰æ ¹é¡ºæ—¶é’ˆè½¬thetaåº¦
             line6 = FractalLine(line5.x2,line5.x1,line5.y2,line5.y1);
             childrenLineList = ArrayList(line1);
             childrenLineList.add(line1);
@@ -66,8 +66,8 @@ classdef FractalLine < Line % extends Line
             childrenLineList.add(line4);
             childrenLineList.add(line6);
           end
-           function quadLines = quadsection(line) % return 4 FractalLine objects ·µ»ØµÈËÄµÈ·ÖµÄ(4¸ö)·ÖÐÎÏß¶Î¶ÔÏó
-            vec = [line.x2-line.x1,line.y2-line.y1];%¿ÉÒÔÖ±½ÓÐ´nµÈ·ÖµÄÏß¶Î£¬µ«ÊÇ×÷ÒµÌ«ÉÙÀÁµÃÐ´ÁË
+           function quadLines = quadsection(line) % return 4 FractalLine objects è¿”å›žç­‰å››ç­‰åˆ†çš„(4ä¸ª)åˆ†å½¢çº¿æ®µå¯¹è±¡
+            vec = [line.x2-line.x1,line.y2-line.y1];%å¯ä»¥ç›´æŽ¥å†™nç­‰åˆ†çš„çº¿æ®µï¼Œä½†æ˜¯ä½œä¸šå¤ªå°‘æ‡’å¾—å†™äº†
             line1 = FractalLine(line.x1,line.x1+vec(1)/4,line.y1,line.y1+vec(2)/4);
             line2 = FractalLine(line.x1+vec(1)/4,line.x1+vec(1)*2/4,line.y1+vec(2)/4,line.y1+vec(2)*2/4);
             line3 = FractalLine(line.x1+vec(1)*2/4,line.x2*3/4,line.y1+vec(2)*2/4,line.y2*3/4);
@@ -79,9 +79,9 @@ classdef FractalLine < Line % extends Line
             quadLines.add(line4);
  end
         
- function childrenLine = fractal3(line) %fractal£¬get all children FractalLine node
-            quadLineList = quadsection(line);%vector2DÆ½ÒÆÊÇ¿ÉÒÔÐ´µ½Line·½·¨ÀïµÄ£¬µ«¹À¼ÆÖ®ºóÒ²ÓÃ²»µ½£¬¾ÍÃ»Ð´¡£
-            line1 = quadLineList.get(1);%·µ»ØµÄµÚ1,2,3,4¸ù·ÖÐÎ×ÓÏß¶ÎÊÇÔ­À´Ïß¶ÎµÄ4µÈ·ÖÏß¶Î
+ function childrenLine = fractal3(line) %fractalï¼Œget all children FractalLine node
+            quadLineList = quadsection(line);%vector2Då¹³ç§»æ˜¯å¯ä»¥å†™åˆ°Lineæ–¹æ³•é‡Œçš„ï¼Œä½†ä¼°è®¡ä¹‹åŽä¹Ÿç”¨ä¸åˆ°ï¼Œå°±æ²¡å†™ã€‚
+            line1 = quadLineList.get(1);%è¿”å›žçš„ç¬¬1,2,3,4æ ¹åˆ†å½¢å­çº¿æ®µæ˜¯åŽŸæ¥çº¿æ®µçš„4ç­‰åˆ†çº¿æ®µ
             line2 = quadLineList.get(2);
             line4 = quadLineList.get(4);
             cLine = line2.rotate(pi/2);
