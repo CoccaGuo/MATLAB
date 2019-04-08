@@ -3,7 +3,8 @@
 - ArrayList
 - Line
 ###### assignments中记录上课留的作业
+- wave addition
 - fractal
 
-create date:2019/04/08
-author:Cocca
+> create date:2019/04/08
+> author:Cocca
