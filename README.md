@@ -2,6 +2,7 @@
 ###### matlab中按照java的范式还原了部分常用类。
 - ArrayList
 - Line
+- FuncObj
 ###### assignments中记录上课留的作业
 - wave addition
 - fractal
