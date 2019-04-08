@@ -1,5 +1,5 @@
 classdef ArrayList < List 
-    %list的实现类
+    %list碌脛脢碌脧脰脌脿
     % author : Cocca
     % date :2019/03/30
     properties
@@ -85,7 +85,7 @@ classdef ArrayList < List
                 obj.objArr(cursor).print(); 
             end
         end
-        function flag = eq(obj,~)%没写的方法 
+        function flag = eq(obj,~)%脙禄脨麓碌脛路陆路篓 
             flag = 0;
         end
 end
