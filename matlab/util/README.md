@@ -169,22 +169,36 @@ ans =
 #### ArrayList综合运用
 
 ​	之前我们已经定义了FractalLine类。这个类通过传入一对点的坐标(x1,y1)、(x2,y2)来构造一条线段，并实现了线段的平移、旋转、求模、取等分点、分形等操作。下面我们用ArrayList处理分型中众多的线段。
+
 ​	`parentLine = FractalLine(0,0,0,1);`  %最开始的一条直线(0,0)(0,1)
+
 ​	`lineList = ArrayList(parentLine);` %声明并实现一个ArrayList，用于存放所有线段
+
 ​	`lineList.add(parentLine);`% 先把第一条直线放到lineList中
+
 ​	`childrenList = ArrayList(parentLine);`%声明了另一个存放线段的ArrayList
+
 ​	`for i = 1:n `%循环次数
+
 ​	   ` childrenList.removeAll();` %将childList清空
+
 ​	   ` for cursor = 1:lineList.getSize()`%遍历整个lineList，cursor在循环中依次指向lineList中的每条线段的index
+
 ​	           ` childrenList.addAll(lineList.get(cursor).fractal);` % lineList.get(cursor).fractal 获得lineList中cursor位置的线段，调用它的分形方法。childrenList.addAll()每一条线段分形后返回一组子线段(结果)，将它们放入childList中暂存。
+
 ​	  `  end `   
 ​	           ` lineList.removeAll();`%将lineList清空
+
 ​	            `lineList.addAll(childrenList);`%把这一次循环所有结果重新放入lineList中，等待下一次循环
 
 ​	`end` %循环结束，分形完成
+
 ​	`for cursor = 1:lineList.getSize()`%遍历分形的结果
+
 ​	     `lineList.get(cursor).plot(); `%对每个线段调用plot方法
+
 ​	   ` axis equal`
+
 ​	  `  hold on`
 `end`
 
