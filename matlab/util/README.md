@@ -1,4 +1,5 @@
 # ArrayList类的使用
+### 使用ArrayList需要ArrayList.m List.m Collection.m 和 Obj.m(在MATLAB/matlab/lang/Obj.m)
 
 ​	ArrayList是可变长度的列表。ArrayList类是对MATLAB数组的重新封装。ArrayList的语言更接近我们的思维方式，使用ArrayList将更加方便快捷，让我们专注于更重要的问题上，而不是被数据类型所困。ArrayList的源代码可以在阅读原文拿到。
 
