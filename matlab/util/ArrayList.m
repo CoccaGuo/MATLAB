@@ -66,19 +66,16 @@ classdef ArrayList < List
              object = obj.objArr(index);
         end
         function obj = removeAll(obj)
-            obj.objArr = [];
+            if obj.size == 0
+                return
+            else
+            obj.objArr = [obj.get(1)];
             obj.size = 0;
+            end
         end
         function obj = addAll(obj,objectList)
            obj.objArr = [obj.objArr objectList.objArr];
            obj.size = obj.size + objectList.size;
-        end
-        function flag = hasNext(obj)
-           if obj.cursor == obj.size
-               flag = 0;
-           else
-               flag = 1;
-           end
         end
          function print(obj)
             for cursor = 1:obj.getSize()
