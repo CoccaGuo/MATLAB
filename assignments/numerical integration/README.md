@@ -8,6 +8,7 @@
 以上程序均要求积分精度高于高于万分之一
 
 ---------------------结果---------------------
+
 f1-trapezoid:at least 20083 times
 
 f1-simpson:at least 6688 times
