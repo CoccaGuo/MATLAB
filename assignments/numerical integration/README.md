@@ -9,10 +9,17 @@
 
 ---------------------结果---------------------
 f1-trapezoid:at least 20083 times
+
 f1-simpson:at least 6688 times
+
 f2-trapezoid:at least 188496 times
+
 f2-simpson:at least 62836 times
+
 f3-trapezoid:at least 44999 times
+
 f3-simpson:at least 17371 times
+
 f4-trapezoid:at least 15001 times
+
 f4-simpson:at least 8001 times
