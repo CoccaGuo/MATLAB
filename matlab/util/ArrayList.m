@@ -1,5 +1,6 @@
 classdef ArrayList < List 
-    %list碌脛脢碌脧脰脌脿
+    %list的实现类
+    %(final)不要修改这个类的构造方法。修改前请==备份==这个版本。
     % author : Cocca
     % date :2019/03/30
     properties
@@ -13,8 +14,17 @@ classdef ArrayList < List
                 obj.objArr = [];
             end
             if nargin == 1
-            obj.size = 0;
-            obj.objArr = [varargin{1}];
+                obj.size = 0;
+                obj.objArr = [varargin{1}];
+                 cache = varargin{1};
+                if ismatrix(cache) % Construct by matlab vectors
+                    [m,n] = size(cache);
+                   if m == 1 && n > 1 %只有一行且至少有两列
+                       for i = 1:n
+                           obj.add(cache(i));
+                       end
+                   end
+                end
             end
         end
         function flag = check(obj,index)
@@ -59,31 +69,42 @@ classdef ArrayList < List
             obj.objArr(obj.size) = element;
             %flag = 1;
         end
-        function object = indexOf(obj,index)
-             if check(obj,index) ~= 1
-                return
-             end
-             object = obj.objArr(index);
+        function index = indexOf(obj,item)
+            for i = 1:obj.getSize()
+                if eq(obj.objArr(i),item)
+                    index = i;
+                    return;
+                end
+            end
+            index = -1;
         end
         function obj = removeAll(obj)
-            if obj.size == 0
-                return
-            else
-            obj.objArr = [obj.get(1)];
+            obj.objArr = [];
             obj.size = 0;
-            end
         end
         function obj = addAll(obj,objectList)
            obj.objArr = [obj.objArr objectList.objArr];
            obj.size = obj.size + objectList.size;
         end
-         function print(obj)
+         function print(obj) %deprecated, override toString instead.
             for cursor = 1:obj.getSize()
                 obj.objArr(cursor).print(); 
             end
+         end
+         function string = toString(obj)
+             string = String();
+            for cursor = 1:obj.getSize()
+                 string = string + obj.objArr(cursor).toString(); 
+            end
         end
-        function flag = eq(obj,~)%脙禄脨麓碌脛路陆路篓 
-            flag = 0;
+        function flag = eq(obj,obj2)
+            for cursor = 1:obj.getSize()
+               if ~eq(obj.objArr(cursor),(obj2.objArr(cursor)))
+                   flag = (1==0);
+                   return;
+               end
+            end
+               flag = 1 == 1;         
         end
-end
+    end
 end
