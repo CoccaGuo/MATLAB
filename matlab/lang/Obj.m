@@ -1,8 +1,13 @@
-classdef(Abstract) Obj < handle % extends handle class
+classdef Obj < handle
     % all superclasses of MyClass Object
     % interface implements to Matlab Classes
-    methods(Abstract)
-     flag = eq(obj,anotherObj); %åˆ¤æ–­ä¸¤ä¸ªå¯¹è±¡æ˜¯å¦ç›¸ç­‰ 
-     print(obj); %æ ¼å¼åŒ–æ‰“å°å¯¹è±¡
+    methods
+        function flag = eq(obj,~); %ÅÐ¶ÏÁ½¸ö¶ÔÏóÊÇ·ñÏàµÈ
+            flag = 1 == 0;
+        end
+    end
+    methods
+        function obj = toString(obj) %¸ñÊ½»¯´òÓ¡Êä³ö½Ó¿Ú
+        end %Ä¬ÈÏÊµÏÖ
     end
 end
