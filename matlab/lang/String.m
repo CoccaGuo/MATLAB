@@ -11,7 +11,11 @@ classdef String < Obj
                 obj.str = "";
             end
             if nargin == 1
-            obj.str = varargin{1};
+                if isa(varargin{1},'string')
+                obj.str = varargin{1};
+                elseif isa(varargin{1},'char')
+                 obj.str = string(varargin{1});  
+                end
             end
         end
         function  flag = eq(obj,obj2)
@@ -56,33 +60,14 @@ classdef String < Obj
              chars = obj.str.char;
              strVal = String(string(chars(start:endd)));
          end
-%  split方法，谁爱搞谁搞吧，我佛了。
-%         function arrayList = split(obj,regex)%regex也要封装成String
-%             ch = 1;
-%             patt = String(".$|()[{^?*+\");
-% %             if (obj.length ==1 && patt.indexOf(regex.charAt(0)) == -1),ch = regex.charAt(0) || ...
-% %                    (regex.length == 2 && ...
-% %                     regex.charAt(0) == '\' &&...
-% %                     (regex.charAt(1)-'0')|('9'-regex.charAt(1)) < 0 ch =regex.charAt(1) &&...
-% %                     ((ch-'a')|('z'-ch)) < 0 &&...
-% %               ((ch-'A')|('Z'-ch)) < 0)
-%             next = 1;
-%             off = 1;
-%             list = ArrayList(String);
-%             next = obj.indexOf(ch, off);
-%             while (next  ~= -1) 
-%                 next = indexOf(ch, off);
-%                 list.add(obj.substring(off,next));
-%                 disp(list);
-%                 off = next + 1;
-%             end
-%             if (off == 0)
-%                  list.add(obj.str);
-%                  return;
-%             end
-%             list.add(obj.substring(off,obj.length));
-%            end
-% %           end
+        function list = split(obj,regex)%regex也要封装成String
+            list = ArrayList(String);
+             res = split(obj.str,regex);
+             for i = 1:length(res)
+                 list.add(String(res(i)));
+             end
+           end
+
         function print(obj)
             fprintf('%s',obj.str);
         end
@@ -104,7 +89,7 @@ classdef String < Obj
             str = obj.str;
         end
         function l = length(obj)
-            l = strlength(obj.str);
+            l = length(obj.toCharArray);
         end
         function flag = isEmpty(obj)
             flag = obj.length==0;

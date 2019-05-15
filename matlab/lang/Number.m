@@ -4,7 +4,17 @@ classdef Number < Obj
     end
     methods(Static)
         function num = parseNumber(str) %注意返回的是num不是Number对象
+            if isa(str,'ArrayList')
+                num = zeros(1,str.getSize);
+                for i = 1: str.getSize
+                   num(i) = Number.parseNumber(str.get(i));
+                end
+            end
+            if isa(str,'string')
             num = double(str);
+            elseif isa(str,'String')
+                num = double(str.str);
+            end
         end
     end
     methods
@@ -42,11 +52,17 @@ classdef Number < Obj
         function num = getNumber(obj)% 手动拆箱
             num = obj.num;
         end
+         function num = toMatlabNumber(obj)% 手动拆箱
+            num = obj.num;
+        end
         function flag = eq(obj,anotherObj)
             flag = obj.num == anotherObj.num;
         end
         function print(obj)
-            System.out.print(obj.num);
+            System.out.print(string(obj.num));
+        end
+        function str = toString(obj)
+            str = String(string(obj.num));
         end
     end
 end

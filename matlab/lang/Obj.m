@@ -1,4 +1,4 @@
-classdef Obj < handle
+classdef Obj < handle % extends handle class
     % all superclasses of MyClass Object
     % interface implements to Matlab Classes
     methods
